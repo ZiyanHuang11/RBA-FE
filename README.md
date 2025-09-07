@@ -13,24 +13,42 @@ RBA-FE is a robust brain-inspired audio feature extractor for depression diagnos
 
 ### Overall System Architecture
 
-![RBA-FE Architecture](docs/images/rbafe_architecture.png)
-*Figure 1: Complete RBA-FE system architecture with manual feature extraction, hierarchical processing, and ARSLIF neurons*
+<div align="center">
+  <img src="docs/images/rbafe_architecture.png" width="800"/>
+  <br>
+  <em>Figure 1: Complete RBA-FE system architecture with manual feature extraction, hierarchical processing, and ARSLIF neurons</em>
+</div>
 
-### Data Flow and Processing Pipeline
+#### Detailed Architecture Components
+<details>
+<summary><b>📊 Click to view detailed architecture diagrams</b></summary>
+<table>
+<tr>
+<td width="50%">
+Data Flow Pipeline
+<img src="docs/images/data_flow.png" width="100%"/>
+<em>Figure 2: Data flow and tensor dimensions</em>
+</td>
+<td width="50%">
+ARSLIF Neuron Model
+<img src="docs/images/arslif_neuron.png" width="100%"/>
+<em>Figure 4: Adaptive Rate Smooth LIF dynamics</em>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+Brain-Inspired Hierarchical Architecture
+<div align="center">
+<img src="docs/images/hierarchical_architecture.png" width="600"/>
+<br>
+<em>Figure 3: Hierarchical network inspired by human auditory pathway</em>
+</div>
+</td>
+</tr>
+</table>
+</details>
 
-![Data Flow](docs/images/data_flow.png)
-*Figure 2: Illustration of data flow and tensor dimensions through the RBA-FE pipeline*
-
-### Brain-Inspired Hierarchical Architecture
-
-![Hierarchical Architecture](docs/images/hierarchical_architecture.png)
-*Figure 3: The hierarchical network architecture inspired by the human auditory pathway*
-
-### ARSLIF Neuron Model
-
-![ARSLIF Model](docs/images/arslif_neuron.png)
-*Figure 4: Adaptive Rate Smooth Leaky Integrate-and-Fire (ARSLIF) neuron dynamics*
-
+#### ARSLIF Innovation
 The ARSLIF model enhances standard LIF neurons through:
 - **Adaptive Threshold**: Dynamically adjusts based on firing rates (equations 6-9)
 - **Smooth Gradient**: Ensures stable backpropagation during training
