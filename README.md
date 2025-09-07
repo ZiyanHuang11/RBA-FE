@@ -74,7 +74,7 @@ conda activate rbafe
 # Install dependencies
 pip install -r requirements.txt
 ```
-### Training
+### Train
 
 ```bash
 # Train on AVEC2014
