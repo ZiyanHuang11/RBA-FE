@@ -1,0 +1,56 @@
+# ARSLIF Neuron Parameters
+arslif:
+  f: 0.65                    # Target firing rate
+  f_adapt: 0.85              # Adaptive target rate
+  f_active: 0.99             # Active firing rate
+  f_rest: 0.01               # Rest firing rate
+  tau_adapt: 1000            # Adaptation time constant
+  tau_mem: 10                # Membrane time constant
+  dt: 1                      # Time step
+  alpha: 0.6                 # Target rate error weight
+  beta: 0.4                  # Adaptive rate error weight
+  surrogate_slope: 1         # Surrogate gradient slope
+
+# Model Architecture
+model:
+  tcnn_filters: 64
+  tcnn_kernel_size: [7, 7]
+  attention_heads: 8
+  attention_dim: 64
+  lstm_units: 128
+  dropout_rate: 0.5
+
+# Audio Processing
+audio:
+  sample_rate: 22050
+  n_mfcc: 40
+  window_size: 1024
+  hop_length: 512
+  n_fft: 2048
+  segment_duration: 1.5  # milliseconds
+
+# Training Parameters
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: adam
+  loss: sparse_categorical_crossentropy
+  metrics: [accuracy]
+  epochs: 20
+  validation_split: 0.2
+  early_stopping_patience: 5
+
+# Dataset Paths
+datasets:
+  avec2014:
+    path: data/AVEC2014
+    train_split: 0.7
+    val_split: 0.15
+    test_split: 0.15
+  modma:
+    path: data/MODMA
+    train_split: 0.8
+    test_split: 0.2
+  daic_woz:
+    path: data/DAIC-WOZ
+    use_official_split: true
